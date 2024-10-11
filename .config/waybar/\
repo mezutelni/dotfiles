@@ -1,0 +1,75 @@
+{
+  "layer": "top",
+    "modules-left": ["hyprland/workspaces", "memory", "cpu"],
+    "modules-center": ["clock"],
+    "modules-right": ["pulseaudio", "bluetooth", "network", "tray", "custom/arch"],
+    "custom/arch": {
+      "format": " ⏻ ",
+      "tooltip": false,
+      "on-click": "sh $HOME/.local/bin/power-menu-rofi"
+    },
+    "hyprland/workspaces": {
+      "format": "{name}",
+      "format": "{icon}",
+      "tooltip": false,
+      "all-outputs": true,
+      "format-icons": {
+        "active": "",
+        "default": ""
+      }
+    },
+    "clock": {
+      "format": "<span color='#b4befe'> </span>{:%H:%M %d/%m/%G %a}",
+      "on-click": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+    },
+    "pulseaudio": {
+      "format": "<span color='#b4befe'>{icon}</span> {volume}%",
+      "format-muted": "",
+      "tooltip": false,
+      "format-icons": {
+        "headphone": "",
+        "default": ["", "", "󰕾", "󰕾", "󰕾", "", "", ""]
+      },
+      "scroll-step": 1,
+      "on-click": "sh $HOME/.local/bin/sinks-picker"
+    },
+    "bluetooth": {
+      "format": "<span color='#b4befe'></span> {status}",
+      "format-disabled": "", // an empty format will hide the module
+      "format-connected": "<span color='#b4befe'></span> {num_connections}",
+      "tooltip-format": "{device_enumerate}",
+      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}"
+    },
+    "network": {
+      "interface": "enp10s0",
+      "format": "{ifname}",
+      "format-wifi": "<span color='#b4befe'> </span>{essid}",
+      "format-ethernet": "",
+      "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
+      "tooltip": false,
+    },
+    "tray": {
+      "spacing": 10,
+    },
+    "memory": {
+      "interval": 10,
+      "format": "\uf538   {}%",
+    },
+    "cpu": {
+      "interval": 5,
+      "format": "\uf2db   {usage}%",
+    },
+}
