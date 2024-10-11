@@ -1,0 +1,13 @@
+[Default Applications]
+text/html=zen-alpha.desktop
+x-scheme-handler/http=zen-alpha.desktop
+x-scheme-handler/https=zen-alpha.desktop
+x-scheme-handler/about=zen-alpha.desktop
+x-scheme-handler/unknown=zen-alpha.desktop
+application/pdf=org.gnome.Evince.desktop
+image/jpeg=org.gnome.eog.desktop
+image/png=org.gnome.eog.desktop;
+
+[Added Associations]
+application/pdf=org.gnome.Evince.desktop;
+image/jpeg=org.gnome.eog.desktop;
