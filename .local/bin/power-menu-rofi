@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+options="1. Power off\n2. Reboot\n3. Log out\n"
+no_of_elements=3
+
+
+choice=$(printf "$options" | rofi -dmenu -theme-str 'window { location: north east; width: 300px; } listview { lines: '$no_of_elements'; }' -markup -hide-scrollbar -location 2 -xoffset -60)
+
+choice=$(echo "$choice" | sed -n 's/^\([0-9]\+\.\).*/\1/p')
+
+case "$choice" in
+	"1."        ) shutdown now ;;
+	"2."        ) reboot ;;
+	"3."        ) hyprctl dispatch exit ;;
+esac

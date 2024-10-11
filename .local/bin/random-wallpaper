@@ -1,0 +1,16 @@
+#!/bin/bash
+hyprpaper 
+directory=~/Obrazy/Tapety
+monitor=`hyprctl monitors | grep Monitor | awk '{print $2}'`
+timer=$1
+echo $timer
+if [ -d "$directory" ]; then
+    while :
+    do
+        random_background=$(find $directory -type f | shuf -n 1)   
+        hyprctl hyprpaper unload all > /dev/null
+        hyprctl hyprpaper preload $random_background > /dev/null 
+        hyprctl hyprpaper wallpaper "$monitor, $random_background" > /dev/null 
+        sleep $timer
+    done
+fi

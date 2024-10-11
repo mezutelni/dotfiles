@@ -1,0 +1,60 @@
+#!/bin/bash
+
+if [ -z $1 ];
+then
+	location="north east"
+else
+	location=$1
+fi
+
+echo $location
+
+# Function to parse and extract sinks from wpctl status output
+parse_wpctl_status() {
+    sinks_block=$(wpctl status | awk '/ ├─ Sinks:/{flag=1; next} / ├─ Sources:/{flag=0} flag' |
+        sed 's/│//g' |
+        sed '/^[[:space:]]*$/d' |
+        sed 's/\[vol: [^]]*\]//g' |
+        sed 's/^[[:space:]]*//;s/[[:space:]]*$//;s/[[:space:]]\+/ /g')
+
+    filter_block=$(wpctl status | awk '/Filters:/,/^ *└─ Streams:/' | awk '/\[Audio\/Sink\]/' |
+        sed 's/│//g' |
+        sed '/^[[:space:]]*$/d' |
+        sed 's/\[vol: [^]]*\]//g' |
+        sed 's/^[[:space:]]*//;s/[[:space:]]*$//;s/[[:space:]]\+/ /g')
+
+    sinks=$(echo "$sinks_block" "\n" "$filter_block" | sed 's/^[ \t]*//')
+
+    sinks=$(
+        echo -e "$sinks" | while IFS= read -r line; do
+            echo "$line" | sed -E 's/^(\s*\*?)\s*([0-9]+\.)\s*.*virtual-surround-7\.1.*/\1 \2Virtual 7.1 output/' | sed 's/\s//'
+    done)
+
+    sinks_sanitized=$(echo -e "$sinks" | while IFS= read -r line; do
+        if [[ "$line" == *"*"* ]]; then
+            line=$(echo "<b>$line</b>" | sed "s/\*//g")
+        else
+            line=$(echo "$line")
+        fi
+        echo "$line" 
+    done)
+
+    echo "$sinks_sanitized"
+}
+# Collect and format sink information to display in wofi
+output=$(parse_wpctl_status)
+line_count=$(echo "$output" | wc -l | awk '{print $1 + 1}')
+# Call wofi to display the sink list and capture the selected sink
+selected_sink=$(echo -e "$output" | sed 's/\s//' | rofi -dmenu -markup-rows -theme-str 'window { location: '"$location"'; width: 800px; } listview { lines: '$line_count'; }' -markup -hide-scrollbar -location 2 -xoffset -60 ) 
+
+# Process user selection from wofi and set the selected sink as default
+if [[ -n "$selected_sink" ]]; then
+    # Extract the sink name from the selection, removing any HTML markup
+    selected_sink_name=$(echo "$selected_sink" | sed -e 's/<[^>]*>//g' -e 's/ - Default//')
+    # Find the sink ID corresponding to the selected sink name
+    sink_id=$(echo "$selected_sink_name" | grep -Eo '^[0-9]+'| tr -d '\n')
+    # Set the default sink using wpctl
+    wpctl set-default "$sink_id"
+else
+    echo "User cancelled the operation."
+fi
