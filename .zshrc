@@ -109,4 +109,4 @@ export LIBVA_DRIVER_NAME=radeonsi
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-alias dotfiles=/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME"

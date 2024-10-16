@@ -6,7 +6,7 @@
     "custom/arch": {
       "format": "\uf011",
       "tooltip": false,
-      "on-click": "sh ~/.config/rofi/powermenu/type-1/powermenu.sh"
+      "on-click": "sh ~/.local/bin/power-menu-rofi center"
     },
     "hyprland/workspaces": {
 	"format": "{name}",
