@@ -1,69 +1,60 @@
 * {
-  border: none;
   font-family: 'Symbols Nerd Font Mono';
-  font-size: 14px;
+  font-size: 16px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
-  min-height: 10px;
-  margin-bottom: 1px;
+  margin-bottom: 0px;
   margin-top: 1px;
+  color: #cdd6f4;
+}
+
+
+.modules-left {
+  background-color: rgba(17, 17, 27, 0.5);
+  border-radius: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+#workspaces button label {
+}
+
+#workspaces button, #window {
+  padding: 10px;
 }
 
 window#waybar {
-  background-color: rgba(43, 45, 50, 0.5);
-  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
-#workspaces {
+
+.modules-center {
+  background-color: rgba(17, 17, 27, 0.5);
   border-radius: 10px;
-  background-color: #11111b;
-  color: #b4befe;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-top: 3px;
-  margin-left: 10px;
 }
 
-#custom-arch {
-  border-radius: 10px;
-  background-color: #11111b;
-  color: #cdd6f4;
-  margin-right: 15px;
-  margin-left: 15px;
-}
-
-#workspaces button {
-  background: #11111b;
-  color: #b4befe;
-}
-
-#clock, #pulseaudio, #bluetooth, #network, #tray, #cpu, #memory, #disk, #custom-arch, #mpris, #gamemode, #window {
-  border-radius: 10px;
-  background-color: #11111b;
-  color: #cdd6f4;
-  margin-top: 3px;
-  padding-left: 8px;
-  padding-right: 8px;
-  margin-left: 15px;
-}
-
-#gamemode{
-  color: #ff4059;
-  padding-left: 5px;
+#pulseaudio, #bluetooth, #network, #tray, #cpu, #memory, #disk, #gamemode {
+  padding: 10px;
 }
 
 #gamemode.running{
   color: #90f542;
 }
 
-window#waybar.empty{
-  font-size: 0;
-  margin: 0;
-  padding: 0;
+.modules-right {
+  background-color: rgba(17, 17, 27, 0.5);
+  border-radius: 10px;
+  margin-right: 10px;
+
 }
 
+#clock,  #mpris {
+  padding: 10px;
+}
 
 #clock {
-  margin-right: 0;
-  padding-left: 6px;
-  padding-right: 6px;
+}
+
+#custom-mpris {
+  padding-left: 10px;
+  font-family: "SauceCodePro Nerd Font Mono";
 }

@@ -1,8 +1,8 @@
 {
   "layer": "top",
     "modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
-    "modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "tray"],
-    "modules-right": ["custom/mpris", "custom/spacer", "clock"],
+    "modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "bluetooth", "custom/spacer", "network", "custom/spacer", "tray"],
+    "modules-right": ["mpris", "custom/spacer", "clock"],
     "custom/arch": {
       "format": "\uf011",
       "tooltip": false,
@@ -11,47 +11,39 @@
     "custom/spacer": {
       "format": "  ",
     },
-    "custom/mpris": {
-      "exec": "python3 -u .local/bin/scrolling-mpris",
-      "format": "{}",
-      "return-type": "json",
-    },
     "hyprland/workspaces": {
 	"format": "{icon}",
 	"active-only": true,
 	"format-icons": {
-		"1": "󰲠",
-		"2": "󰲢",
-		"3": "󰲤",
-		"4": "󰲦",
-		"5": "󰲨",
-		"6": "󰲪",
-		"7": "󰲬",
-		"8": "󰲮",
-		"9": "󰲰",
+		"1": "|",
+		"2": "||",
+		"3": "|||",
+		"4": "||||",
+		"5": "|||||",
+		"6": "||||||",
+		"7": "|||||||",
+		"8": "",
+		"9": "",
 	},
     },
     "hyprland/window": {
 	"format": "{initialTitle}",
 	"rewrite": {
         	"(.*) — Zen Browser": "$1",
-		"^.{0}$": "Nothing",
     	},
     },
     "mpris": {
 	"format": "{status_icon}   {title}",
 	"format-paused": "{status_icon}   {title}",
-	"format-stopped": "{status_icon}   {title}",
-	"title-len": 40,
+	"title-len": 30,
 	"ellipsis": "   ...",
 	"status-icons": {
-		"paused": "",
-		"default": "",
-		"stopped": "",
+		"paused": "\uf04c",
+		"default": "\uf04b"
 	},
     },
     "clock": {
-      "format": " {:%H:%M %d/%m/%G}",
+      "format": "  {:%H:%M %d/%m/%G %a}",
       "tooltip-format": "<tt><small>{calendar}</small></tt>",
       "calendar": {
                     "mode"          : "year",
