@@ -1,125 +1,97 @@
 {
-  "layer": "top",
-    "modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
-    "modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "tray"],
-    "modules-right": ["custom/mpris", "custom/spacer", "clock"],
-    "custom/arch": {
-      "format": "\uf011",
-      "tooltip": false,
-      "on-click": "sh ~/.local/bin/power-menu-rofi center"
-    },
-    "custom/spacer": {
-      "format": "  ",
-    },
-    "custom/mpris": {
-      "exec": "python3 -u .local/bin/scrolling-mpris",
-      "format": "{}",
-      "return-type": "json",
-    },
-    "hyprland/workspaces": {
-	"format": "{icon}",
-	"active-only": true,
-	"format-icons": {
-		"1": "󰲠",
-		"2": "󰲢",
-		"3": "󰲤",
-		"4": "󰲦",
-		"5": "󰲨",
-		"6": "󰲪",
-		"7": "󰲬",
-		"8": "󰲮",
-		"9": "󰲰",
+	"layer": "top",
+	"modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
+	"modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "tray"],
+	"modules-right": ["custom/mpris", "custom/spacer", "clock"],
+	"custom/arch": {
+		"format": "",
+		"tooltip": false,
+		"on-click": "sh ~/.local/bin/power-menu-rofi center"
 	},
-    },
-    "hyprland/window": {
-	"format": "{initialTitle}",
-	"rewrite": {
-        	"(.*) — Zen Browser": "$1",
-		"^.{0}$": "Nothing",
-    	},
-    },
-    "mpris": {
-	"format": "{status_icon}   {title}",
-	"format-paused": "{status_icon}   {title}",
-	"format-stopped": "{status_icon}   {title}",
-	"title-len": 40,
-	"ellipsis": "   ...",
-	"status-icons": {
-		"paused": "",
-		"default": "",
-		"stopped": "",
+	"custom/spacer": {
+		"format": "  "
 	},
-    },
-    "clock": {
-      "format": " {:%H:%M %d/%m/%G}",
-      "tooltip-format": "<tt><small>{calendar}</small></tt>",
-      "calendar": {
-                    "mode"          : "year",
-                    "mode-mon-col"  : 6,
-                    "weeks-pos"     : "right",
-                    "on-scroll"     : 1,
-                    "format": {
-                              "months":     "<span color='#ffead3'><b>{}</b></span>",
-                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
-                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
-			      "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
-                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
-                              }
-    		},
-    },
-    "gamemode":{
-	"tooltip": false,
-	"use-icon": false,
-    	"glyph": "\uf11b",
-	"icon-size": 0,
-	"icoon-spacing": 0,
-	"hide-not-running": false,
-    },
-    "pulseaudio": {
-      "format": "<span color='#b4befe'>{icon}</span> {volume}%",
-      "format-muted": "\uf6a9",
-      "tooltip": false,
-      "format-icons": {
-        "headphone": "\uf025",
-        "default": ["\uf026", "\uf027", "\uf6a8", "\uf028"]
-      },
-      "scroll-step": 1,
-      "on-click": "sh $HOME/.local/bin/sinks-picker"
-    },
-    "bluetooth": {
-      "format": "<span color='#b4befe'>\uf293</span> {status}",
-      "format-disabled": "", // an empty format will hide the module
-      "format-connected": "<span color='#b4befe'></span> {num_connections}",
-      "tooltip-format": "{device_enumerate}",
-      "tooltip-format-enumerate-connected": "{device_alias}   {device_address}",
-      "on-click": "blueman-manager",
-    },
-    "network": {
-      "interface": "enp10s0",
-      "format": "{ifname}",
-      "format-wifi": "<span color='#b4befe'> </span>{essid}",
-      "format-ethernet": "\uf6ff",
-      "format-disconnected": "<span color='#b4befe'>󰖪 </span>No Network",
-      "tooltip": false,
-      "on-click": "nm-connection-editor"
-    },
-    "tray": {
-      "spacing": 10,
-    },
-    "memory": {
-      "interval": 10,
-      "format": "\uf538   {}%",
-    },
-    "cpu": {
-      "interval": 5,
-      "format": "\uf2db   {usage}%",
-    },
-    "disk#root": {
-      "path": "/",
-      "format": "\uf0a0   /   {percentage_used}%",
-    },
-    "disk#ext": {
-      "path": "/mnt/Games",
-      "format": "\uf0a0   /mnt/Games   {percentage_used}%",
-    },
+	"custom/mpris": {
+		"exec": "python3 -u ~/.local/bin/scrolling-mpris",
+		"format": "{}",
+		"return-type": "json",
+		"on-click": "playerctl play-pause"
+	},
+	"hyprland/workspaces": {
+		"format": "{icon}",
+		"active-only": true,
+		"format-icons": {
+			"1": "󰲠",
+			"2": "󰲢",
+			"3": "󰲤",
+			"4": "󰲦",
+			"5": "󰲨",
+			"6": "󰲪",
+			"7": "󰲬",
+			"8": "󰲮",
+			"9": "󰲰"
+		}
+	},
+	"hyprland/window": {
+		"format": "<span font_family='SauceCodePro Nerd Font Mono'>{initialTitle}</span>",
+		"rewrite": {
+			"(.*) — Zen Browser": "$1",
+			"^.{0}$": "Nothing"
+		}
+	},
+	"clock": {
+		"format": "   <span font_family='SauceCodePro Nerd Font Mono'>{:%H:%M %d/%m/%G}</span>",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+		"calendar": {
+			"mode": "year",
+			"mode-mon-col": 6,
+			"weeks-pos": "right",
+			"on-scroll": 1,
+			"format": {
+				"months": "<span color='#ffead3'><b>{}</b></span>",
+				"days": "<span color='#ecc6d9'><b>{}</b></span>",
+				"weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+				"weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+				"today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+			}
+		}
+	},
+	"gamemode":{
+		"tooltip": false,
+		"use-icon": false,
+		"glyph": "󰸳",
+		"icon-size": 0,
+		"icoon-spacing": 0,
+		"hide-not-running": false
+	},
+	"pulseaudio": {
+		"format": "{icon}   <span font_family='SauceCodePro Nerd Font Mono'>{volume}%</span>",
+		"format-muted": "󰝟",
+		"tooltip": false,
+		"format-icons": {
+			"headphone": "",
+			"default": ["", "", ""]
+		},
+		"scroll-step": 5,
+		"on-click": "sh $HOME/.local/bin/sinks-picker"
+	},
+	"tray": {
+		"spacing": 10
+	},
+	"memory": {
+		"interval": 10,
+		"format": "   <span font_family='SauceCodePro Nerd Font Mono'>{}%</span>"
+	},
+	"cpu": {
+		"interval": 5,
+		"format": "   <span font_family='SauceCodePro Nerd Font Mono'>{usage}%</span>"
+	},
+	"disk#root": {
+		"path": "/",
+		"format": "   <span font_family='SauceCodePro Nerd Font Mono'>/ {percentage_used}%</span>"
+	},
+	"disk#ext": {
+		"path": "/mnt/Games",
+		"format": "   <span font_family='SauceCodePro Nerd Font Mono'>/mnt/Games {percentage_used}%</span>"
+	}
 }

@@ -15,8 +15,6 @@
   margin-right: 10px;
 }
 
-#workspaces button label {
-}
 
 #workspaces button, #window {
   padding: 10px;
@@ -47,14 +45,12 @@ window#waybar {
 
 }
 
-#clock,  #mpris {
+#clock {
   padding: 10px;
 }
 
-#clock {
-}
 
 #custom-mpris {
-  padding-left: 10px;
+  padding: 10px;
   font-family: "SauceCodePro Nerd Font Mono";
 }
