@@ -1,1 +1,1 @@
-![obraz](https://github.com/user-attachments/assets/6f7fe6e0-efb9-40f8-88ac-2baea06ac32e)
+![obraz](https://github.com/user-attachments/assets/8e5ffff2-abd0-4b93-ba02-1d2d3b4f5327)
