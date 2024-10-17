@@ -2,7 +2,7 @@
 
 if [ -z $1 ];
 then
-	location="north east"
+	location="center"
 else
 	location=$1
 fi
@@ -41,13 +41,13 @@ parse_wpctl_status() {
 
     echo "$sinks_sanitized"
 }
-# Collect and format sink information to display in wofi
+# Collect and format sink information to display in rofi
 output=$(parse_wpctl_status)
 line_count=$(echo "$output" | wc -l | awk '{print $1 + 1}')
-# Call wofi to display the sink list and capture the selected sink
+# Call rofi to display the sink list and capture the selected sink
 selected_sink=$(echo -e "$output" | sed 's/\s//' | rofi -dmenu -markup-rows -theme-str 'window { location: '"$location"'; width: 800px; } listview { lines: '$line_count'; }' -markup -hide-scrollbar -location 2 -xoffset -60 ) 
 
-# Process user selection from wofi and set the selected sink as default
+# Process user selection from rofi and set the selected sink as default
 if [[ -n "$selected_sink" ]]; then
     # Extract the sink name from the selection, removing any HTML markup
     selected_sink_name=$(echo "$selected_sink" | sed -e 's/<[^>]*>//g' -e 's/ - Default//')
