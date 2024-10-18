@@ -1,16 +1,90 @@
 #!/bin/bash
-hyprpaper 
+
+# Make sure hyprpaper socket will be free
+killall hyprpaper
+
+# Initialize hyprpaper in the background
+hyprctl dispatch exec "hyprpaper -n"
+
+#Sleep to make sure that socket is avaliable
+sleep 1
+
+# Global env
 directory=~/Obrazy/Tapety
-monitor=`hyprctl monitors | grep Monitor | awk '{print $2}'`
+monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
 timer=$1
-echo $timer
-if [ -d "$directory" ]; then
-    while :
-    do
-        random_background=$(find $directory -type f | shuf -n 1)   
-        hyprctl hyprpaper unload all > /dev/null
-        hyprctl hyprpaper preload $random_background > /dev/null 
-        hyprctl hyprpaper wallpaper "$monitor, $random_background" > /dev/null 
-        sleep $timer
-    done
+sleep_pid=0  # Variable to store the sleep process ID
+
+wallpaper_setter(){
+    random_background=$(find $directory -type f | shuf -n 1)
+    # Error handling for finding wallpapers
+    if [ -z "$random_background" ]; then
+        echo "Error: No wallpapers found in directory $directory."
+        return 1
+    fi
+
+    # Unload and set wallpaper, check for errors
+    if ! hyprctl hyprpaper unload all; then
+        echo "Error: Failed to unload wallpapers."
+        return 1
+    fi
+    
+    if ! hyprctl hyprpaper preload "$random_background" > /dev/null; then
+        echo "Error: Failed to preload wallpaper $random_background."
+        #return 1
+    fi
+    
+    if ! hyprctl hyprpaper wallpaper "$monitor, $random_background" > /dev/null; then
+        echo "Error: Failed to set wallpaper on monitor $monitor."
+        return 1
+    fi
+}
+
+# Function to safely terminate sleep if it's running
+terminate_sleep(){
+    if [ "$sleep_pid" -ne 0 ] && kill -0 $sleep_pid 2>/dev/null; then
+        kill $sleep_pid
+        wait $sleep_pid 2>/dev/null  # Wait for it to terminate
+    fi
+}
+
+main(){
+    if [ -d "$directory" ]; then
+        while true; do
+            hyprctl dispatch exec "hyprpaper -n"
+            wallpaper_setter
+            if [ $? -ne 0 ]; then
+                echo "Error: Wallpaper setting failed, retrying in $timer seconds."
+            fi
+
+            sleep $timer &  # Run sleep in the background
+            sleep_pid=$!    # Store the sleep process ID
+            wait $sleep_pid  # Wait for sleep to finish
+        done
+    fi
+}
+
+# Trap SIGUSR1, terminate sleep, and call wallpaper_setter
+trap 'terminate_sleep; wallpaper_setter' SIGUSR1
+
+# Check if the user provided a timer argument
+if [ -z "$timer" ]; then
+    echo "Error: Timer value not provided."
+    echo "Usage: $0 <time_in_seconds>"
+    exit 1
 fi
+
+# Check if the directory exists
+if [ ! -d "$directory" ]; then
+    echo "Error: Directory $directory does not exist."
+    exit 1
+fi
+
+# Validate the timer input (must be an integer)
+if ! [[ "$timer" =~ ^[0-9]+$ ]]; then
+    echo "Error: Invalid timer value '$timer'. Please provide a valid number."
+    exit 1
+fi
+
+main
+
