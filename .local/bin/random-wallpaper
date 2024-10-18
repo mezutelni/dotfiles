@@ -10,7 +10,7 @@ hyprctl dispatch exec "hyprpaper -n"
 sleep 1
 
 # Global env
-directory=~/Obrazy/Tapety
+directory=~/Pictures/Wallpapers/
 monitor=$(hyprctl monitors | grep Monitor | awk '{print $2}')
 timer=$1
 sleep_pid=0  # Variable to store the sleep process ID
