@@ -33,10 +33,10 @@
 		}
 	},
 	"hyprland/window": {
-		"format": "<span font_family='SauceCodePro Nerd Font Mono'>{initialTitle}</span>",
+		"format": "{class}",
 		"rewrite": {
-			"(.*) — Zen Browser": "$1",
-			"^.{0}$": "Nothing"
+			"zen-alpha": "Zen Browser",
+			"": "Nothing",
 		}
 	},
 	"clock": {

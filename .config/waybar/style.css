@@ -1,5 +1,5 @@
 * {
-  font-family: 'Symbols Nerd Font Mono';
+  font-family: 'Symbols Nerd Font Mono, SauceCodePro Nerd Font Mono';
   font-size: 16px;
   font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"';
   margin-bottom: 0px;
@@ -22,8 +22,12 @@
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
+  
 }
 
+window#waybar.label {
+  font-family: "Grape Nuts";
+}
 
 .modules-center {
   background-color: rgba(17, 17, 27, 0.5);
@@ -54,3 +58,5 @@ window#waybar {
   padding: 10px;
   font-family: "SauceCodePro Nerd Font Mono";
 }
+
+
