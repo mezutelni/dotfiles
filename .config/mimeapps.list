@@ -10,6 +10,7 @@ image/jpeg=org.gnome.eog.desktop
 image/jpg=org.gnome.eog.desktop
 inode/directory=org.gnome.Nautilus.desktop
 image/gif=org.gnome.eog.desktop
+x-scheme-handler/nxm=com.nexusmods.app.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
