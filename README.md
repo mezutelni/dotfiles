@@ -18,7 +18,11 @@ Other:
 
 ## Screenshots
 
-![obraz](https://github.com/user-attachments/assets/39bb1acd-fddf-41e7-8492-6df021705c21)
+![Fastfetch](Pictures/Screenshots/2024-10-21-121117_hyprshot.png)
+
+![Apps](Pictures/Screenshots/2024-10-21-121402_hyprshot.png)
+
+![Wallpapers](Pictures/Screenshots/2024-10-21-122354_hyprshot.png)
 
 Custom MPRIS module with scrolling effect
 
