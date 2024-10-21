@@ -12,7 +12,7 @@
 		"format": "  "
 	},
 	"custom/mpris": {
-		"exec": "python3 -u ~/.local/bin/scrolling-mpris",
+		"exec": "python3 -u ~/.local/bin/scrolling-mpris.py",
 		"format": "{text}",
 		"return-type": "json",
 		"on-click": "playerctl play-pause"
