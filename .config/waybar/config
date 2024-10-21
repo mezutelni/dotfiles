@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"modules-left": ["hyprland/workspaces", "custom/spacer", "hyprland/window"],
-	"modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "tray"],
+	"modules-center": ["memory", "custom/spacer", "cpu", "custom/spacer", "disk#root", "custom/spacer", "disk#ext", "custom/spacer", "gamemode", "custom/spacer", "pulseaudio", "custom/spacer", "custom/arch-updates", "custom/spacer", "tray"],
 	"modules-right": ["custom/mpris", "custom/spacer", "clock"],
 	"custom/arch": {
 		"format": "",
@@ -13,9 +13,15 @@
 	},
 	"custom/mpris": {
 		"exec": "python3 -u ~/.local/bin/scrolling-mpris",
-		"format": "{}",
+		"format": "{text}",
 		"return-type": "json",
 		"on-click": "playerctl play-pause"
+	},
+	"custom/arch-updates": {
+		"exec": "python3 ~/.local/bin/arch-updates.py",
+		"interval": 1800,
+		"format": "󰚰   {}",
+		"return-type": "json"
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",

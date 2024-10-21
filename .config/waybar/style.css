@@ -34,7 +34,7 @@ window#waybar.label {
   border-radius: 10px;
 }
 
-#pulseaudio, #bluetooth, #network, #tray, #cpu, #memory, #disk, #gamemode {
+#pulseaudio, #bluetooth, #network, #tray, #cpu, #memory, #disk, #gamemode, #custom-arch-updates {
   padding: 10px;
 }
 
