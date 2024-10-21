@@ -21,7 +21,9 @@
 		"exec": "python3 ~/.local/bin/arch-updates.py",
 		"interval": 1800,
 		"format": "󰚰   {}",
-		"return-type": "json"
+		"return-type": "json",
+		"on-click": "alacritty -e sh -c ~/.local/bin/waybar-update.sh; pkill -SIGRTMIN+10 waybar",
+		"signal": 10
 	},
 	"hyprland/workspaces": {
 		"format": "{icon}",
