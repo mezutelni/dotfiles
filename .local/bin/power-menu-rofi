@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 
-options="1. Power off\n2. Reboot\n3. Log out\n"
-no_of_elements=3
+icons_location="/home/szymon/.local/share/icons"
 
+reboot_icon="$icons_location/$CURRENT_ICON_THEME/actions/48/system-reboot.svg"
+shutdown_icon="$icons_location/$CURRENT_ICON_THEME/actions/48/system-shutdown.svg"
+logout_icon="$icons_location/$CURRENT_ICON_THEME/actions/48/system-logout.svg"
 
-choice=$(printf "$options" | rofi -dmenu -theme-str 'window { location: center; width: 500px; } listview { lines: '$no_of_elements'; }' -markup -hide-scrollbar -location 2 -xoffset -60)
+options="1. Power off\0icon\x1f$shutdown_icon\n2. Reboot\0icon\x1f$reboot_icon\n3. Log out\0icon\x1f$logout_icon"
+
+choice=$(printf "$options" | rofi -dmenu -no-config -theme "tokyonight-power-menu" -hide-scrollbar)
+
+echo $choice
 
 choice=$(echo "$choice" | sed -n 's/^\([0-9]\+\.\).*/\1/p')
+
 
 case "$choice" in
 	"1."        ) shutdown now ;;

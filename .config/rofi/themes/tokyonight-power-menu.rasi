@@ -1,0 +1,44 @@
+@import "tokyonight"
+
+* {
+	background-color: rgba(0, 0, 0, 0);
+}
+
+window {
+	transparency: "real";
+	location: center;
+	children: [listview];
+	fullscreen: true;
+}
+
+listview {
+	margin: 570px 666px 0px 666px;
+	children: [element];
+	border: 0px;
+	flow: horizontal;
+}
+
+element {
+	border: 0px;
+	children: [element-icon];
+	padding: 0;
+	spacing: 0;
+	margin: 0 0 0 100px;
+	border-radius: 100 0 100 0;
+	
+}
+
+element selected.normal {
+	background-color: rgba(26, 27, 38, 0.7);
+	//border: 1px;
+	//border-color: rgba(255, 255, 255, 0.8);
+	background-image: linear-gradient(45deg,rgba(51, 204, 255, 0.3), rgba(0, 255, 153, 0.3));
+	padding: 2em;
+}
+
+element-icon {
+	margin: 0;
+	padding: 0;
+	size: 300px;
+}
+
