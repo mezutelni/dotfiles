@@ -159,6 +159,7 @@ timeshift-autosnap
 tk
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
+ttf-twemoji-color
 vbam-wx
 vdpauinfo
 vesktop
@@ -180,6 +181,7 @@ xdg-desktop-portal-gtk-git
 xdg-desktop-portal-wlr-git
 xdg-user-dirs
 xf86-video-amdgpu
+xorg-xev
 xorg-xhost
 xsettingsd
 xwaylandvideobridge-git
