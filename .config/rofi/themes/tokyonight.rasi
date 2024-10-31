@@ -6,37 +6,33 @@
 
 // define colors etc.
 * {
-    bg: rgba(36, 40, 59, 0.5);
+    font: "Monospace 11";
+    bg: rgba(36, 40, 59, 0.2);
     hv: #9274ca; 
     primary: #C5C8C6; 
     ug: #0B2447;
-    font: "Monospace 11";
-    background-color: @bg;
-    //dark: @bg;
-    border: 0px;
     kl: #7aa2f7;
-    black: #000000;
+    transparent: rgba(255,255,255,0);
+    
+    background-color: @bg;
+    border: 0px;
+    border-color: @transparent;
+    text-color: white;
 
-    transparent: rgba(46,52,64,0);
 }
 
 // defines different aspects of the window
 window {
     width: 900;
-    /*since line wont work with height, i comment it out 
-    if you rather control the size via height
-    just comment it out */
-    //height: 500;
-
     orientation: horizontal;
     location: center;
     anchor: center;
     transparency: "real";
-    border-color: @transparent;   
-    border: 0px;
-    border-radius: 8px;
     spacing: 0;
     children: [ mainbox ];
+    border: 1px;
+    border-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
 
 mainbox {
@@ -47,25 +43,23 @@ mainbox {
 inputbar {
     color: @kl;
     padding: 11px;
-    border: 3px 3px 2px 3px;
-    border-color: @primary;
-    border-radius: 6px 6px 0px 0px;
 }
 
 message {
-    padding: 0;
+    padding: 2;
     border-color: @primary;
-    border: 0px 1px 1px 1px;
 }
 
 entry, prompt, case-indicator {
-    background-color: rgba(36, 40, 59, 0);
+    background-color: @transparent;
     text-font: inherit;
     text-color: inherit;
+    padding: 2px;
 }
 
 entry {
     cursor: pointer;
+    blink: false;
 }
 
 prompt {
@@ -74,11 +68,10 @@ prompt {
 
 listview {
     layout: vertical;
-    //spacing: 5px;
     padding: 8px;
     lines: 6;
-    columns: 3;
-    border: 0px 3px 3px 3px; 
+    columns: 2;
+    border: 1px 0px 0px 0px; 
     border-radius: 0px 0px 6px 6px;
     border-color: @primary;
     dynamic: false;
@@ -91,29 +84,35 @@ element {
     color: @kl;
     font: inherit;
     border: 1px;
-    border-color: rgba(255,255,255,0.2);
+    border-color: @transparent;
+    border-radius: 100 0 100 0;
+    background-color: @transparent;
 }
 
 element-text {
-    background-color: rgba(36, 40, 59, 0);
-    text-color: inherit;
+    background-color: @transparent;
+    text-color: white;
     vertical-align: 0.5;
 }
 
 element selected.normal {
-    color: @black;
     background-color: @hv;
+    background-color: rgba(26, 27, 38, 0.7);
+    background-image: linear-gradient(45deg,rgba(51, 204, 255, 0.3), rgba(0, 255, 153, 0.3));
+    padding: 2em;
+    text-color: #000000;
 }
 
 element normal active {
     background-color: @hv;
-    color: @black;
+    color: black;
 }
 
 element-icon {
-    background-color: rgba(36, 40, 59, 0);
+    background-color: @transparent;
     text-color: inherit;
     size: 1.5em;
+    margin: 0 10px 0 0;
 }
 
 element normal urgent {

@@ -16,6 +16,7 @@ listview {
 	children: [element];
 	border: 0px;
 	flow: horizontal;
+	columns: 3;
 }
 
 element {
