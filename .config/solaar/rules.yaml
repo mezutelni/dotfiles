@@ -1,0 +1,21 @@
+%YAML 1.3
+---
+- MouseGesture: Mouse Left
+- Execute: [hyprctl, dispatch, workspace, '-1']
+...
+---
+- MouseGesture: Mouse Right
+- Execute: [hyprctl, dispatch, workspace, '+1']
+...
+---
+- MouseGesture: Mouse Down
+- Execute: [hyprctl, dispatch, fullscreen, '1']
+...
+---
+- MouseGesture: Mouse Up
+- Execute: [hyprctl, dispatch, fullscreen, '1']
+...
+---
+- Key: [Mouse Gesture Button, pressed]
+- Execute: ''
+...
