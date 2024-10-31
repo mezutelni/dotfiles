@@ -28,13 +28,13 @@ Other:
 ![Wallpapers](Pictures/Screenshots/2024-10-21-122354_hyprshot.jpg)
 
 #### Custom power menu
-![Rofi Power Menu](Pictures/2024-10-31-150133_hyprshot.jpg)
+![RofiPowerMenu](Pictures/2024-10-31-150133_hyprshot.jpg)
 
 #### Rofi app picker style
-![Rofi app picker](Pictures/2024-10-31-150119_hyprshot.jpg)
+![Rofiapppicker](Pictures/2024-10-31-150119_hyprshot.jpg)
 
 #### Rofi sinks picker
-![Rofi sinks picker](Pictures/2024-10-31-150337_hyprshot.jpg)
+![Rofisinkspicker](Pictures/2024-10-31-150337_hyprshot.jpg)
 
 #### Custom MPRIS module with scrolling effect
 ![proje](https://github.com/user-attachments/assets/144ce4bc-ad21-44d9-9b96-0abeaff97671)
