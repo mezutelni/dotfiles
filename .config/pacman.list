@@ -7,12 +7,14 @@ alvr-git
 amd-ucode
 aquamarine-git
 ark
+baobab
 base
 base-devel
 bashtop
 bc
 bind
 blueman
+brightnessctl
 btrfs-progs
 checkupdates-with-aur
 cliphist
@@ -37,9 +39,11 @@ geekbench
 git
 gnome-keyring
 gnome-tweaks
+google-chrome
 goverlay
 gparted
 gradience
+greetd
 grub
 grub-btrfs
 grub-customizer
@@ -80,6 +84,7 @@ linux-lts-headers
 linux-wallpaperengine-git
 linux-zen
 linux-zen-headers
+localsend
 lua-language-server
 lxappearance
 mako
@@ -96,6 +101,7 @@ networkmanager-openvpn
 nexusmods-app-bin
 nmap
 noto-fonts-emoji
+nvtop
 nwg-dock-hyprland
 nwg-drawer
 nwg-look
@@ -139,12 +145,11 @@ rofi-emoji-git
 rofi-wayland
 rofimoji-git
 sane-airscan
-sddm
 sddm-conf
-sddm-theme-sugar-candy-git
 seahorse
 showmethekey
 simple-scan
+sl
 smartmontools
 solaar
 spotify
@@ -160,6 +165,7 @@ tk
 ttf-nerd-fonts-symbols
 ttf-nerd-fonts-symbols-mono
 ttf-twemoji-color
+unrar
 vbam-wx
 vdpauinfo
 vesktop
@@ -173,6 +179,7 @@ wayvnc
 webcord
 wg-client
 wget
+winbox
 wireguard-tools
 wireplumber
 wl-clip-persist
