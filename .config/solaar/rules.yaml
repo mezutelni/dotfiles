@@ -1,5 +1,11 @@
 %YAML 1.3
 ---
+- MouseGesture: []
+- KeyPress:
+  - [Super_L, r]
+  - click
+...
+---
 - MouseGesture: Mouse Left
 - Execute: [hyprctl, dispatch, workspace, '-1']
 ...
@@ -14,8 +20,4 @@
 ---
 - MouseGesture: Mouse Up
 - Execute: [hyprctl, dispatch, fullscreen, '1']
-...
----
-- Key: [Mouse Gesture Button, pressed]
-- Execute: ''
 ...
