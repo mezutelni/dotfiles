@@ -5,15 +5,19 @@ x-scheme-handler/https=zen-alpha.desktop
 x-scheme-handler/about=zen-alpha.desktop
 x-scheme-handler/unknown=zen-alpha.desktop
 application/pdf=org.gnome.Evince.desktop
-image/png=feh.desktop
-image/jpeg=feh.desktop
+image/png=org.gnome.eog.desktop
+image/jpeg=org.gnome.eog.desktop
 image/jpg=org.gnome.eog.desktop
 inode/directory=org.gnome.Nautilus.desktop
 image/gif=org.gnome.eog.desktop
 x-scheme-handler/nxm=com.nexusmods.app.desktop
+text/x-log=vscodium-wayland.desktop
+image/heif=org.gnome.eog.desktop
 
 [Added Associations]
 application/pdf=org.gnome.Evince.desktop;
 image/jpeg=org.gnome.eog.desktop;feh.desktop;
 image/gif=org.gnome.eog.desktop;
-image/png=feh.desktop;
+image/png=feh.desktop;org.gnome.eog.desktop;
+text/x-log=vscodium-wayland.desktop;
+image/heif=org.gnome.eog.desktop;
