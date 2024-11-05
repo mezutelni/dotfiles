@@ -70,7 +70,7 @@ ZSH_THEME="passion"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git docker ansible aws fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -103,10 +103,13 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"a
 #
-PATH="$PATH:$HOME/.local/bin:$HOME/.config/rofi/scripts"
-export VDPAU_DRIVER=radeonsi
-export LIBVA_DRIVER_NAME=radeonsi
+PATH="$PATH:$HOME/.local/bin"
 
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
-alias dotfiles="/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME"
+#source /usr/share/fzf/key-bindings.zsh
+##source /usr/share/fzf/completion.zsh
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/szymon/.config/.dart-cli-completion/zsh-config.zsh ]] && . /home/szymon/.config/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
