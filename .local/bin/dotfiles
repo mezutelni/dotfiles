@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/bin/git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME "$@"
